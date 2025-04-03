@@ -35,3 +35,25 @@ Todo comenzo en el año 2020 ...."""
 curso, mes, dia, habilitado, nota = 'Backend', 'Marzo', 20, False, 13
 
 print(curso)
+
+
+CREATE DATABASE colegio;
+
+\c colegio;
+
+CREATE TABLE alumnos (
+    id SERIAL PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    apellido_paterno TEXT,
+    apellido_materno TEXT,
+    correo TEXT UNIQUE NOT NULL,
+    exonerado BOOLEAN DEFAULT FALSE,
+    fecha_matricula TIMESTAMP NOT NULL
+);
+
+INSERT INTO alumnos (nombre, apellido_paterno, apellido_materno, correo, exonerado, fecha_matricula) VALUES
+('eduardo', 'perez', 'marquina', 'eperez@gmail.com', false, '2018-01-13'),
+('lucia', 'martinez', 'perez', 'lmartinez@gmail.com', false, '2020-03-04'),
+('roberto', 'manrique', 'vizcarra', 'rmanrique@hotmail.com', true, '2021-02-01'),
+('ivan', 'yucra', 'perez', 'iyucra@hotmail.com', false, '2023-07-18'),
+('daniela', 'soncco', NULL, 'dsoncoo@yahoo.com', true, '2019-05-14');
